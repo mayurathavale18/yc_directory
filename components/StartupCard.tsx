@@ -7,7 +7,7 @@ import {Button} from "@/components/ui/button";
 
 const StartupCard = ({post}: { post: StartupTypeCard }) => {
 
-    const { _createdAt, views, author: { _id : authorId, name }, title, category, _id, image, description } = post
+    const {_createdAt, views, author: {_id: authorId, name}, title, category, _id, image, description} = post
 
     return (
         <li className="startup-card group">
@@ -38,7 +38,7 @@ const StartupCard = ({post}: { post: StartupTypeCard }) => {
                 <p className="startup-card_desc">
                     {description}
                 </p>
-                <img src={image} alt="placeholder" className="startup-card_img" />
+                <img src={image} alt="placeholder" className="startup-card_img"/>
             </Link>
 
             <div className="flex-between gap-2 mt-5">
