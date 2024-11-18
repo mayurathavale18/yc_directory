@@ -1,5 +1,5 @@
 import React, {Suspense} from 'react'
-import {STARTUP_BY_ID_QUERY} from "@/lib/queries";
+import {STARTUP_BY_ID_QUERY} from "@/sanity/lib/queries";
 import {client} from "@/sanity/lib/client";
 import {notFound} from "next/navigation";
 import {formatDate} from "@/lib/utils";
