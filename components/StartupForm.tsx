@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useState, useActionState} from 'react'
+import {useState, useActionState} from 'react'
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import MDEditor from "@uiw//react-md-editor"
