@@ -32,7 +32,7 @@
   }
 
   .text-24-black {
-    @apply text-[24px] font-black text-black;
+    @apply text-[24px] font-bold text-black;
   }
 
   .text-20-medium {
