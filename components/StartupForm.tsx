@@ -9,7 +9,8 @@ import {Send} from "lucide-react";
 import {formSchema} from "@/lib/validation";
 import {z} from "zod";
 import { useToast } from "@/hooks/use-toast";
-import {useRouter} from "next/router";
+import { useRouter } from "next/navigation";
+import {createPitch} from "@/lib/actions";
 
 const StartupForm = () => {
 
@@ -19,7 +20,7 @@ const StartupForm = () => {
 
     const { toast } = useToast()
 
-    // const router = useRouter()
+    const router = useRouter()
 
     const handleSubmitForm = async (prevState: any, formData: FormData) => {
         try {
@@ -31,19 +32,15 @@ const StartupForm = () => {
                 pitch
             }
             await formSchema.parseAsync(formValues);
-
-            console.log(formValues)
-            // const result = await createIdea(prevState, formData, pitch);
-            //
-            // console.log(result)
-            // if (res.status === "SUCCESS") {
-            //     toast({
-            //         title: 'Success',
-            //         description: 'Form Submitted Successfully',
-            //     });
-            // router.push(`{/startup/${result.id}`)
-            // }
-            // return result
+            const result = await createPitch(prevState, formData, pitch);
+            if (result.status === "SUCCESS") {
+                toast({
+                    title: 'Success',
+                    description: 'Your Startup Pitch has been created Successfully',
+                });
+            router.push(`/startup/${result._id}`)
+            }
+            return result
 
         } catch (e) {
             if (e instanceof z.ZodError) {
